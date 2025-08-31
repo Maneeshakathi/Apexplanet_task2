@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <form id="contactForm">
+      <h2>Contact Us</h2>
+
+      <!-- Name with emoji option -->
+      <label for="name">Name</label>
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <select id="emojiSelect">
+          <option value="">😀</option>
+          <option value="😁">😁</option>
+          <option value="😂">😂</option>
+          <option value="😊">😊</option>
+          <option value="😍">😍</option>
+          <option value="😎">😎</option>
+          <option value="🤔">🤔</option>
+          <option value="🙌">🙌</option>
+          <option value="👍">👍</option>
+          <option value="✨">✨</option>
+          <option value="❤️">❤️</option>
+        </select>
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Enter your message" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Output section -->
+    <div id="output"></div>
+  </div>
+
+  <script>
+    // When user selects an emoji, append it to Name field
+    document.getElementById("emojiSelect").addEventListener("change", function() {
+      const emoji = this.value;
+      if (emoji) {
+        document.getElementById("name").value += " " + emoji;
+        this.selectedIndex = 0; // reset dropdown
+      }
+    });
+
+    // Show submitted data
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const message = document.getElementById("message").value;
+
+      document.getElementById("output").innerHTML = `
+        <h3>Submitted Data:</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Message:</strong> ${message}</p>
+      `;
+
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+</body>
+</html>

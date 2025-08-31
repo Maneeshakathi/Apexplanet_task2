@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "type": "text",
+      "placeholder": "Full Name",
+      "required": true
+    },
+    {
+      "type": "email",
+      "placeholder": "Email Address",
+      "required": true
+    },
+    {
+      "type": "text",
+      "placeholder": "Phone Number",
+      "required": false
+    },
+    {
+      "type": "textarea",
+      "placeholder": "Message",
+      "required": true,
+      "rows": 4
+    }
+  ]
+}
